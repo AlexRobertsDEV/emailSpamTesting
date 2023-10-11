@@ -56,7 +56,7 @@ async function testForm(page) {
 
     const cluster = await Cluster.launch({
         concurrency: Cluster.CONCURRENCY_PAGE,
-        maxConcurrency: 4, // You're testing one function that includes both spam and clean
+        maxConcurrency: 4, // Controls the number of headless browser instances
         puppeteerOptions: {
             headless: true,
         }
@@ -67,7 +67,7 @@ async function testForm(page) {
         results.push(result);
     });
 
-    cluster.queue({}); // Queue the task. No data object required since testForm handles both spam and clean.
+    cluster.queue({}); 
 
     await cluster.idle();
     await cluster.close();
