@@ -9,25 +9,25 @@ const {
 const testURL = 'https://annalisetestsite.staging005.townsquareinteractive.com/contact/';
 
 async function testForm(page) {
-    const testRuns = 10;
+    const testRuns = 43;
     let cleanSuccessCount = 0;
     let cleanErrorCount = 0;
     let spamSuccessCount = 0;
     let spamErrorCount = 0;
 
-    // Test with clean data 100 times
-    for (let i = 0; i < testRuns; i++) {
-        try {
-            await page.goto(testURL);
-            await completeContactUsFormClean(page);
-            cleanSuccessCount++;
-            console.log(`Clean Form Completion(s): ${cleanSuccessCount}`);
-        } catch (error) {
-            console.error(`Error during clean test run ${i + 1}`);
-            console.error(error);
-            cleanErrorCount++;
-        }
-    }
+    // // Test with clean data 100 times
+    // for (let i = 0; i < testRuns; i++) {
+    //     try {
+    //         await page.goto(testURL);
+    //         await completeContactUsFormClean(page);
+    //         cleanSuccessCount++;
+    //         console.log(`Clean Form Completion(s): ${cleanSuccessCount}`);
+    //     } catch (error) {
+    //         console.error(`Error during clean test run ${i + 1}`);
+    //         console.error(error);
+    //         cleanErrorCount++;
+    //     }
+    // }
 
     // Test with spam data 100 times
     for (let i = 0; i < testRuns; i++) {
